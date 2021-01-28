@@ -1,0 +1,714 @@
+.header {
+  position: relative;
+  padding: 80px 0 0;
+  height: auto;
+  @include bottomMargin(100);
+}
+
+//* NAVIGATION PANEL
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba($color: $white, $alpha: 0.9);
+  padding: 20px 0;
+  z-index: 999;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    @include link-reset;
+    font-size: 18px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    &:hover {
+      color: $pink;
+    }
+  }
+
+  &__burger {
+    display: none;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    display: none;
+  }
+  &__link {
+    @include link-reset;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    &:not(:nth-of-type(5)) {
+      margin: 0 24px 0 0;
+    }
+    &:nth-of-type(5) {
+      margin: 0 30px 0 0;
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      bottom: -3px;
+      left: 0;
+      background-color: $black;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+  &__start-btn {
+    @extend .btn;
+    padding: 5px 35px;
+    line-height: 25px;
+    border-color: $black;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    &:hover {
+      color: $pink;
+      border-color: $pink;
+    }
+  }
+}
+
+//* BANNER SECTION
+.banner {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__photo {
+    @include anim-addition();
+    height: auto;
+    width: calc(100% - 380px);
+    object-fit: cover;
+    object-position: right;
+  }
+}
+
+.info {
+  padding: 40px 30px 0 0;
+  width: 380px;
+  &__title {
+    @include anim-addition();
+    @include textFormat(72, 700, unset, 15);
+  }
+
+  &__subtitle {
+    @include anim-addition();
+    @include textFormat(24, 500, unset, 40);
+  }
+
+  &__text {
+    @include anim-addition();
+    @include textFormat(16, 400, 24, 50);
+  }
+
+  &__btn {
+    @include anim-addition();
+    @extend .btn;
+    width: 160px;
+    color: $pink;
+    border-color: $pink;
+    padding: 10px 0;
+    text-align: center;
+    box-sizing: border-box;
+    transition: letter-spacing 0.3s ease;
+    &:hover {
+      letter-spacing: 3px;
+    }
+  }
+}
+
+//* SERVICES SECTION
+.card-item {
+  @include link-reset;
+  border-radius: 2px;
+  box-shadow: 0px 4px 20px rgba(207, 207, 207, 1);
+  transition: transform 0.3s ease;
+  &__photo {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+.card-description {
+  padding: 40px 24px;
+  &__title {
+    @include textFormat(24, 700, unset, 24);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 24px;
+  }
+
+  &__dance-list {
+    @include textFormat(16, 400, unset, 0);
+    li:not(:last-child) {
+      margin: 0 0 8px;
+    }
+  }
+}
+
+//+ SLIDER STYLES
+.slider {
+  overflow: hidden;
+  margin: -30px -20px;
+  padding: 30px 20px;
+}
+
+.swiper-container {
+  overflow: unset !important;
+}
+
+.swiper-wrapper {
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.card-item-pagination {
+  @extend .swiper-pagination;
+  position: static !important;
+  margin-top: 25px;
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background-color: $white;
+    opacity: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $pink;
+    border: none;
+  }
+}
+
+//* OFFERS SECTION
+.offers {
+  margin: 0 0 40px;
+}
+.offers-item-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.offer-item {
+  @include anim-addition();
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  margin: 0 10px 60px;
+  &__icon {
+    display: block;
+    height: 70px;
+    font-size: 70px;
+    color: $pink;
+    margin: 0 0 14px;
+  }
+
+  &__text {
+    @include textFormat(16, 400, 25, 0);
+    text-align: center;
+  }
+}
+
+//* COACHES SECTION
+.coach-card-container {
+  position: relative;
+  overflow: unset !important;
+}
+.coach-card {
+  display: flex;
+  height: 440px;
+  // width: 50%;
+  box-shadow: 0px 4px 20px rgba(207, 207, 207, 0.25);
+  border-radius: 2px;
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
+  &__photo {
+    width: 50%;
+    object-fit: cover;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+  }
+}
+.coach-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding: 43px 33px;
+}
+.coach-info {
+  color: $black;
+  margin: 0 0 30px;
+  &__number {
+    @include textFormat(16, 700, 24, 8);
+  }
+
+  &__name {
+    @include textFormat(24, 700, 24, 8);
+  }
+
+  &__occupation {
+    @include textFormat(16, 400, 24, 24);
+  }
+}
+
+.details-item {
+  color: rgba($color: $black, $alpha: 0.5);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  &__value {
+    color: $black;
+  }
+  &:not(:last-of-type) {
+    margin: 0 0 16px;
+  }
+}
+
+.coach-card-btn {
+  display: block;
+  @extend .btn;
+  width: 162px;
+  padding: 10px 25px;
+  text-align: center;
+  box-sizing: border-box;
+  color: $pink;
+  border-color: $pink;
+  transition: letter-spacing 0.2s ease;
+  &:hover {
+    letter-spacing: 2px;
+  }
+  &__icon {
+    display: none;
+  }
+}
+//+ SLIDER STYLES
+.coach-card-pagination {
+  @extend .card-item-pagination;
+  position: static !important;
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.coach-card-button-next {
+  @extend .swiper-button-next;
+  right: calc(50% - 80px);
+  transform: translateY(-20%);
+}
+
+.coach-card-button-prev {
+  @extend .swiper-button-prev;
+  left: calc(50% - 80px);
+  transform: translateY(-20%) rotateY(180deg);
+}
+
+.coach-card-button-next,
+.coach-card-button-prev {
+  position: absolute;
+  display: block;
+  width: 45px;
+  height: 45px;
+  top: calc(100% - 3px);
+  color: $black;
+  font-size: 45px;
+  &.hide {
+    display: none;
+  }
+  &::after {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .icon-arrow {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//* FOOTER SECTION
+.footer {
+  background-color: $darkGrey;
+  padding: 35px 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    @extend .topbar__logo;
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__copyright {
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+//+ MEDIA
+
+//* W-1024
+@media (max-width: 1024px) {
+  //+ COACHES SECTION
+  .coach-card {
+    flex-direction: column;
+    height: auto;
+    &__photo {
+      width: 100%;
+      height: 350px;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 2px;
+      object-position: 0 25%;
+    }
+  }
+  .coach-info-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .details-item {
+    &__value {
+      display: block;
+    }
+  }
+  //+ ANIMATION OFF
+}
+//* W-768
+@media (max-width: 768px) {
+  //+ BODY SCROLL LOCK WHEN MOBILE MENU IS OPEN
+  .body.lock {
+    overflow: hidden;
+  }
+
+  //+ HEADER
+  .header {
+    height: auto;
+    padding: 72px 0 0;
+    @include bottomMargin(50);
+  }
+
+  .topbar {
+    &__logo {
+      &:hover {
+        color: $black;
+      }
+    }
+    &__burger {
+      position: relative;
+      display: block;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      z-index: 3;
+
+      &::before,
+      &::after {
+        content: '';
+        transition-duration: 0.2s;
+      }
+
+      span,
+      &::before,
+      &::after {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $black;
+        transition-timing-function: ease;
+      }
+
+      &::before {
+        top: 9px;
+        transition-property: top, transform;
+        transition-delay: 0.2s, 0s;
+      }
+
+      &::after {
+        bottom: 9px;
+        transition-property: bottom, transform;
+        transition-delay: 0.2s, 0s;
+      }
+
+      span {
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity ease 0.2s 0.1s;
+      }
+
+      &.active::before {
+        top: 15px;
+        transform: rotate(45deg);
+        transition-delay: 0s, 0.2s;
+      }
+
+      &.active::after {
+        bottom: 15px;
+        transform: rotate(-45deg);
+        transition-delay: 0s, 0.2s;
+      }
+
+      &.active span {
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+    }
+  }
+
+  .navigation {
+    left: 100%;
+    transition: transform 0.2s ease 0.2s;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $white;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 70px 0 0 25px;
+    overflow-y: scroll;
+    border-bottom: 4px solid $pink;
+    z-index: 2;
+    &.active {
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: 'MENU';
+      font-size: 155px;
+      color: #fef2f6;
+      writing-mode: vertical-lr;
+      top: 20px;
+      right: 20px;
+      font-weight: 900;
+      background-color: $white;
+      z-index: 4;
+    }
+
+    &__title {
+      display: block;
+      position: relative;
+      @include textFormat(36, 700, unset, 50);
+      z-index: 5;
+    }
+
+    &__link {
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      z-index: 5;
+      &:not(:nth-of-type(5)) {
+        margin: 0 0 40px;
+      }
+      &:nth-of-type(5) {
+        margin: 0 0 40px;
+      }
+      &:hover::before {
+        opacity: 0;
+      }
+    }
+    &__start-btn {
+      z-index: 5;
+      &:hover {
+        color: $black;
+        border-color: $black;
+      }
+    }
+  }
+
+  //+ BANNER SECTION
+  .banner {
+    &__container {
+      flex-direction: column-reverse;
+      padding: 0;
+    }
+
+    &__photo {
+      min-width: 100%;
+      height: 275px;
+      margin: 0 0 30px;
+    }
+  }
+
+  .info {
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+    &__btn {
+      &:hover {
+        letter-spacing: normal;
+      }
+    }
+  }
+
+  //+ SERVICE SECTION
+  .card-item {
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  //+ BANNER SECTION
+  .coach-card-btn {
+    &:hover {
+      letter-spacing: normal;
+    }
+  }
+}
+
+//* W-576
+@media (max-width: 576px) {
+  //+ HEADER
+
+  .info {
+    &__title {
+      font-size: 36px;
+      margin: 0 0 10px;
+    }
+    &__subtitle {
+      font-size: 14px;
+      margin: 0 0 20px;
+    }
+    &__text {
+      font-size: 14px;
+      margin: 0 0 35px;
+    }
+  }
+
+  //+ SERVICES SECTION
+  .card-description {
+    &__title {
+      font-size: 18px;
+    }
+    &__dance-list {
+      font-size: 13px;
+    }
+  }
+
+  //+ OFFERS SECTION
+  .offers {
+    margin: 0 0 20px;
+  }
+  .offer-item {
+    width: 130px;
+    margin: 0 5px 30px;
+
+    &__icon {
+      height: 44px;
+      font-size: 44px;
+    }
+    &__text {
+      font-size: 13px;
+    }
+  }
+
+  //+ COACHES SECTION
+  .coach-info-wrapper {
+    position: relative;
+    padding: 32px 16px;
+  }
+
+  .coach-card {
+    &__photo {
+      height: 250px;
+    }
+  }
+
+  .coach-info {
+    margin: 0;
+    &__number {
+      font-size: 12px;
+    }
+
+    &__name {
+      font-size: 18px;
+      margin: 0 0 4px;
+    }
+
+    &__occupation {
+      margin: 0 0 16px;
+      font-size: 13px;
+    }
+  }
+
+  .details-item {
+    line-height: 20px;
+    font-size: 13px;
+  }
+
+  .coach-card-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 33px;
+    height: 33px;
+    box-sizing: unset;
+    padding: 0;
+    border-radius: 50%;
+    &__text {
+      display: none;
+    }
+    &__icon {
+      left: 5%;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+//* w-375
+@media (max-width: 375px) {
+  //+ OFFERS SECTION
+  .offers-item-container {
+    justify-content: space-between;
+  }
+}
