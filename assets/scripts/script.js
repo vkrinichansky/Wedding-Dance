@@ -39,12 +39,18 @@ let CardSwiper = new Swiper('.card-item-container', {
   },
 
   breakpoints: {
+    320: {
+      spaceBetween: 30,
+    },
+
     375: {
       slidesPerView: 1.3,
+      spaceBetween: 30,
     },
 
     576: {
       slidesPerView: 1.5,
+      spaceBetween: 30,
     },
     768: {
       slidesPerView: 2,
@@ -81,6 +87,7 @@ let coachSwiper = new Swiper('.coach-card-container', {
       pagination: {
         type: 'bullets',
         spaceBetween: 30,
+        slidesPerView: 1,
       },
     },
     375: {
