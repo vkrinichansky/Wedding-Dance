@@ -64,6 +64,7 @@ img {
 
 @media (max-width: 768px) {
   .section {
+    @include bottomMargin(50);
     &__description {
       width: 90%;
     }
@@ -72,12 +73,9 @@ img {
 
 @media (max-width: 576px) {
   .section {
-    @include bottomMargin(50);
     &__title {
       font-size: 24px;
       @include bottomMargin(12);
-
-      margin: 0 0 12px;
     }
 
     &__description {
