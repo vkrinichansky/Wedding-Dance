@@ -80,6 +80,7 @@ let coachSwiper = new Swiper('.coach-card-container', {
     320: {
       pagination: {
         type: 'bullets',
+        spaceBetween: 30,
       },
     },
     375: {
@@ -87,6 +88,7 @@ let coachSwiper = new Swiper('.coach-card-container', {
       pagination: {
         type: 'bullets',
       },
+      spaceBetween: 30,
     },
 
     576: {
@@ -94,6 +96,7 @@ let coachSwiper = new Swiper('.coach-card-container', {
       pagination: {
         type: 'bullets',
       },
+      spaceBetween: 30,
     },
     768: {
       slidesPerView: 2,
@@ -150,3 +153,8 @@ window.addEventListener(
   },
   false
 );
+
+if (document.documentElement.clientWidth < 1024) {
+  swiperPrev.classList.add('hide');
+  swiperNext.classList.add('hide');
+}
